@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Zain:wght@200;300;400;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Zain", sans-serif;
+    direction: rtl;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 100vh;
+}
+
+header {
+    background-color: #d8d4d4;
+    color: #365E32;
+    padding: 20px 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: 2px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    cursor: pointer;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #365E32;
+}
+
+.theme-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: #365E32;
+    margin-right: 70px;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: column;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #122;
+    font-size: 1.5em;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #CCC;
+    border-radius: 4px;
+    transform: scale(1.05);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* لون خلفية محسن */
+    min-width: 200px; /* زيادة العرض الأدنى */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+    max-height: 0px;
+    overflow: hidden;
+    border-radius: 8px; /* زوايا دائرية لتحسين الشكل */
+    padding: 10px 0; /* إضافة فراغ داخلي */
+}
+
+.dropdown-content a {
+    color: #123;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: right;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-bottom: 1px solid #eee; 
+}
+.dropdown-content a:last-child {
+    border-bottom: none; 
+}
+
+.dropdown-content a:hover {
+    background-color: #ccc;
+    transform: scale(1.05);
+    border-radius: 4px; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    max-height: 400px; 
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    .theme-icon {
+        display: block;
+        margin-right: 0;
+    }
+    .container {
+        flex-direction: row;
+        align-items: center;
+    }
+    h1 {
+        order: 2;
+        flex: 1;
+        text-align: center;
+        font-size: 2em;
+        font-family: "Anton", sans-serif;
+    }
+    .menu-icon {
+        order: 1;
+    }
+    .theme-icon {
+        order: 3;
+        margin-right: 0px;
+    }
+    nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #d8d4d4;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    nav ul li a {
+        width: 100%;
+        padding: 15px 0;
+    }
+    .dropdown-content {
+        position: relative;
+    }
+}
+
+/* الوضع المظلم */
+body.dark-theme {
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+body.dark-theme header {
+    background-color: #1F1F1F;
+    color: #E0E0E0;
+}
+
+body.dark-theme .menu-icon, body.dark-theme .theme-icon {
+    color: #E0E0E0;
+}
+body.dark-theme nav{
+    background-color: #1F1F1F;
+}
+body.dark-theme nav ul li a {
+    border-radius: 5px;
+    color: #E0E0E0;
+}
+
+body.dark-theme nav ul li a:hover {
+    background-color: #333;
+    color: #E0E0E0;
+}
+
+body.dark-theme .dropdown-content {
+    background-color: #333;
+}
+
+body.dark-theme .dropdown-content a {
+    color: #E0E0E0;
+}
+
+body.dark-theme .dropdown-content a:hover {
+    background-color: #444;
+    color: #E0E0E0;
+}
+body.dark-theme #info-section {
+    background-color:#333 ;
+}
+
+
+
+/* قسم slider */
+#slider {
+    position: relative;
+    width: 100%;
+    height: 500px; /* يمكنك تعديل الارتفاع حسب الحاجة */
+    overflow: hidden;
+    margin-top: 90px;
+}
+
+#slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(100%);
+}
+
+#slider .slide.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    #slider {
+        height: 300px; 
+        
+    }
+}
+
+
+
+
+
+/* قسم info */
+#info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 1s ease, opacity 1s ease; /* إضافة تأثير الانتقال */
+    opacity: 0; /* تبدأ الصورة غير مرئية */
+    transform: translateX(100%); /* تبدأ الصورة من خارج الشاشة */
+}
+
+.info-text {
+    flex: 2;
+    min-width: 300px;
+    margin: 10px;
+}
+
+.info-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.info-text p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.info-text .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FD9B63;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.info-text .btn:hover {
+    background-color: #E7D37F;
+}
+
+@media screen and (max-width: 768px) {
+    #info-section {
+        padding: 20px;
+    }
+    .info-container {
+        flex-direction: column;
+    }
+    .info-image, .info-text {
+        min-width: 100%;
+        text-align: center;
+    }
+    .info-image {
+        height: auto;
+        transform: translateX(0); /* تعديل لتكون الصور مرئية بشكل صحيح على الهواتف */
+    }
+}
+
+/* إضافة كلاس للأنيميشن */
+.info-image.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* clint section */
+
+#testimonial-slider {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.testimonial-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonial-slide {
+    display: none;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 8px;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-slide p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testimonial-slide h3 {
+    font-size: 1em;
+    color: #666;
+    margin: 0;
+}
+.coment-clint{
+    font-family: "Zain", sans-serif;
+    letter-spacing: 0;
+}
+
+/* footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FD9B63;
+}
+
+footer p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+form input, form textarea {
+    background-color: #fff;
+    color: #333;
+}
+
+form button {
+    background-color: #FD9B63;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #E7D37F;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-container {
+        padding: 0 10px;
+    }
+    .social-icons {
+        margin-bottom: 20px;
+    }
+    form input, form textarea, form button {
+        max-width: 100%;
+    }
+}
+
+/*  whatsapp */
+.whatsapp-button {
+    display: none; 
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* background-color: #f4f4f4; */
+    color: #25D366;
+    padding: 15px;
+    font-size: 5em;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+@media screen and (max-width: 768px){
+    .whatsapp-button{
+        font-size: 3em;
+    }
+}
+
+
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px; 
+    
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: green #f1f1f1; 
+}
