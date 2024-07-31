@@ -149,7 +149,7 @@ form button:hover {
         margin-bottom: 20px;
     }
     form input, form textarea, form button {
-        max-width: 100%;
+        max-width: 70%;
     }
 }
 
